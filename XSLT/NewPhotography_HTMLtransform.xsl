@@ -148,17 +148,18 @@
                 
                     <div class="row" id="totals">
                         <div class="col-md-4">
-                            <b>Collection Primary Images: </b><span class="number"><xsl:value-of select="count(r/d[contains(., '_v')][ends-with(., '.jpg')])"/></span>
+                            <b>Collection Primary Images: </b><span class="number"><xsl:value-of select="count(r/d/@f[contains(., '_v')][ends-with(., '.jpg')])"/></span>
                         </div>
                         <div class="col-md-4">
-                            <b>Collection Detail Images: </b><span class="number"><xsl:value-of select="count(r/d[contains(., '_d')][ends-with(., '.jpg')])"/></span>
+                            <b>Collection Detail Images: </b><span class="number"><xsl:value-of select="count(r/d/@f[contains(., '_d')][ends-with(., '.jpg')])"/></span>
                         </div>
                         <div class="col-md-4">
-                            <b>Non-Collection Images: </b><span class="number"><xsl:value-of select="count(r/d[contains(., 'noncollections')][ends-with(., '.tif')])"/></span>
+                            <b>Non-Collection Images: </b><span class="number"><xsl:value-of select="count(r/d[contains(., 'noncollections')][contains(
+                                translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '.tif')])"/></span>
                         </div>
                     </div>
                 
-                <xsl:if test="count(r/d[contains(., '_v')][ends-with(., '.jpg')]) &gt; 0">                
+                <xsl:if test="count(r/d/@f[contains(., '_v')][ends-with(., '.jpg')]) &gt; 0">                
                 <h3>New Collections Primary Photography</h3>
                 <table class="table table-bordered table-striped" id="table1" style="width:100%">
                     <tr>
@@ -172,7 +173,7 @@
                         <th style="width:8%">Upload Date</th>
                     </tr>
                 <xsl:for-each select="r">
-                    <xsl:if test="contains(n, '_v01.jpg')">
+                    <xsl:if test="contains(d/@f, '_v01_t.jpg')">
                         <xsl:variable name="Creator">
                             <xsl:choose>
                                 <xsl:when test="m/mv[@c='CRECREATORREF_TAB']!=''"><xsl:value-of select="replace(m/mv[@c='CRECREATORREF_TAB'][1], '\|\|', '---')"/>
@@ -202,7 +203,8 @@
                 </xsl:element></h2>
                 </xsl:if>
                 
-                <xsl:if test="count(r/d[contains(., 'noncollections')][ends-with(., '.tif')]) &gt; 0">
+                <xsl:if test="count(r/d[contains(., 'noncollections')][contains(
+                    translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '.tif')]) &gt; 0">
                 <h3>New Non-Collection Photography</h3>
                     <xsl:variable name="Keywords">
                         <xsl:for-each select="r">
@@ -226,7 +228,8 @@
                     </tr>
                 <xsl:variable name="rtf">
                     <xsl:for-each select="r">
-                        <xsl:if test="contains(n, '.tif')">
+                        <xsl:if test="contains(
+                            translate(n, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '.tif')">
                         <xsl:if test="m/mv[@c='KEYWORDS']!=''">
                         <xsl:call-template name="tokenize">
                             <xsl:with-param name="string" select="m/mv[@c='KEYWORDS']"/>
