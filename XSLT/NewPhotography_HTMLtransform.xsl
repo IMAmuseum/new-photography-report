@@ -148,14 +148,17 @@
                 
                     <div class="row" id="totals">
                         <div class="col-md-4">
-                            <b>Collection Primary Images: </b><span class="number"><xsl:value-of select="count(r/d/@f[contains(., '_v')][ends-with(., '.jpg')])"/></span>
+                            <b>Collection Primary Images: </b><span class="number"><xsl:value-of select="count(r/d/@f[starts-with(., 'ps_')][contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_v')][ends-with(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '.jpg')])"/></span>
                         </div>
                         <div class="col-md-4">
-                            <b>Collection Detail Images: </b><span class="number"><xsl:value-of select="count(r/d/@f[contains(., '_d')][ends-with(., '.jpg')])"/></span>
+                            <b>Collection Detail Images: </b><span class="number"><xsl:value-of select="count(r/d/@f[starts-with(., 'ps_')][contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_d')][ends-with(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '.jpg')])"/></span>
                         </div>
                         <div class="col-md-4">
-                            <b>Non-Collection Images: </b><span class="number"><xsl:value-of select="count(r/d[contains(., 'noncollections')][contains(
+                            <b>Non-Collection Images: </b><span class="number"><xsl:value-of select="count(r/d[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'noncollections')][contains(
                                 translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '.tif')])"/></span>
+                        </div>
+                        <div class="col-md-4">
+                            <b>Conservation Images: </b><span class="number"><xsl:value-of select="count(r/d[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'conservation')])"/></span>
                         </div>
                     </div>
                 
@@ -173,7 +176,7 @@
                         <th style="width:8%">Upload Date</th>
                     </tr>
                 <xsl:for-each select="r">
-                    <xsl:if test="contains(d/@f, '_v01_t.jpg')">
+                    <xsl:if test="contains(translate(d/@f, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_v01_t.jpg')">
                         <xsl:variable name="Creator">
                             <xsl:choose>
                                 <xsl:when test="m/mv[@c='CRECREATORREF_TAB']!=''"><xsl:value-of select="replace(m/mv[@c='CRECREATORREF_TAB'][1], '\|\|', '---')"/>

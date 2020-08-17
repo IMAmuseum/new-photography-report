@@ -52,7 +52,7 @@ cd CollectionImages
 REM call DownloadImages.cmd to initiate download of all collection primary images
 call C:\new-photography-report\CMD\DownloadImages.cmd
 
-REM change directory to new-photography-report\PastReport
+REM change directory to new-photography-report\PastReports
 cd C:\new-photography-report\PastReports
 
 REM rename CurrentReport to 
