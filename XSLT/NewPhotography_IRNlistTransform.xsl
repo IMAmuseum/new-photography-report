@@ -6,7 +6,7 @@
     <xsl:output method="text"/>
     
     <xsl:template match="/a">
-        <xsl:for-each select="distinct-values(r/m[not(contains(mv[@c='FILENAME'], 'CON_'))][contains(translate(mv[@c='FILENAME'], 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_v')]/mv[@c='IRN'])">
+        <xsl:for-each select="distinct-values(r/m[not(contains(mv[@c='FILENAME'], 'CON_'))][contains(translate(mv[@c='FILENAME'], 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_v01')]/mv[@c='IRN'])">
 <xsl:value-of select="."/><xsl:text>,
 </xsl:text>
         </xsl:for-each>

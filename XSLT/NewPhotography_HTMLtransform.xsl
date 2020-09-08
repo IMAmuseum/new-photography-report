@@ -147,17 +147,19 @@
                 </center>
                 
                     <div class="row" id="totals">
-                        <div class="col-md-4">
-                            <b>Collection Primary Images: </b><span class="number"><xsl:value-of select="count(r/d/@f[starts-with(., 'ps_')][contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_v')][ends-with(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '.jpg')])"/></span>
+                        <div class="col-md-6">
+                            <b>Collection Primary Images: </b><span class="number"><xsl:value-of select="count(r/d/@f[starts-with(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'ps_')][contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_v')][ends-with(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '.jpg')])"/></span>
                         </div>
-                        <div class="col-md-4">
-                            <b>Collection Detail Images: </b><span class="number"><xsl:value-of select="count(r/d/@f[starts-with(., 'ps_')][contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_d')][ends-with(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '.jpg')])"/></span>
+                        <div class="col-md-6">
+                            <b>Collection Detail Images: </b><span class="number"><xsl:value-of select="count(r/d/@f[starts-with(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'ps_')][contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_d')][ends-with(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '.jpg')])"/></span>
                         </div>
-                        <div class="col-md-4">
+                    </div>
+                    <div class="row" id="totals">
+                        <div class="col-md-6">
                             <b>Non-Collection Images: </b><span class="number"><xsl:value-of select="count(r/d[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'noncollections')][contains(
                                 translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '.tif')])"/></span>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <b>Conservation Images: </b><span class="number"><xsl:value-of select="count(r/d[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'conservation')])"/></span>
                         </div>
                     </div>
