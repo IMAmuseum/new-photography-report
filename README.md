@@ -24,7 +24,7 @@ To test installation of these application from a terminal window, confirm that t
 
 *NOTE: This application was written with saxon9he.jar as the active version of Saxon. If your Windows machine has a different version, the two Saxon commands in new-photography-report.cmd need to be modified to reflect the version of Saxon installed on your machine.*
 
-This report also requires the IBM Word Cloud Generator (https://www.softpedia.com/get/Office-tools/Other-Office-Tools/IBM-Word-Cloud-Generator.shtml) be installed in the main new-photography-report folder, stored in the folder "IBM World Cloud." The following related files should be stored in the primary new-photography-report folder:
+This report also requires the IBM Word Cloud Generator (https://www.softpedia.com/get/Office-tools/Other-Office-Tools/IBM-Word-Cloud-Generator.shtml) be installed in the main new-photography-report folder, stored in the folder "IBM Word Cloud." The following related files should be stored in the primary new-photography-report folder:
 
 * ibm-word-cloud.jar
 * IBMconfig.txt
