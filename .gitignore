@@ -1,6 +1,5 @@
 settings.cmd
-IBM Word Cloud\
 ibm-word-cloud.jar
-CMD/DownloadImages.cmd
-CMD/PictionCall.cmd
+CMD/*
 XML/SURL.xml
+CurrentReport/*
