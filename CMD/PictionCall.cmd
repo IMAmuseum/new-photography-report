@@ -1,3 +1,0 @@
-set PictionCall=https://digitalmedia.imamuseum.org/r/st/IQ/SURL/76626262ZZZZGBFETRYOTV/SEARCH/AGE:"21"/LIMIT/PHOTO/METADATA/ALL/MAXROWS/5000
-
-set Date=2020-8-17
